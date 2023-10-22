@@ -1,8 +1,15 @@
 import React from 'react'
+import Navbar from './Navbar'
+import Login from './Login'
+
+const [showLogin, setshowLogin] = useState(false)
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <>
+    <Navbar></Navbar>
+    {showLogin && <Login></Login>}
+    </>
   )
 }
 

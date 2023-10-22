@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Work+Sans:wght@500&display=swap');
+@media only screen and (max-width: 500px) {
+    #navRes {
+        display: none;
+    }
+
+    #itemNav {
+        display: none;
+    }
+}
+
+#navFix {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    min-width: 100vw
+}
+
+@media(min-width:801px) {
+    #hamburger {
+        display: none;
+    }
+}
+
+#title {
+    font-family: 'Work Sans';
+}
