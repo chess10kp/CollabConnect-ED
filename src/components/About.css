@@ -1,23 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit&family=Work+Sans:wght@300;500&display=swap');
 .about{
     display: flex;
-    height: 100vh;
+    height: 91vh;
     font-family: "work Sans";
-}
-.column1{
     position: relative;
-    flex-basis: 50%;
-    display: flex;
-    height: 100%;
-    place-items: center;
+
+}
+video{
+    position: fixed;
+    opacity: 0.2;
+    min-width: 100%;
+    min-height: 100%;
+    right: 0;
+    bottom: 0;
 }
 .column2{
-    flex-basis: 50%;
     padding: 40px;
     height: 100%;
     display: flex;
     place-content: center;
     place-items: center;
+    z-index: 2;
 
 }
 .column2 h1{
@@ -28,9 +31,10 @@
     width: 80%;
 }
 .column2 p{
+    padding-top: 30px;
     line-height: 1.8em;
     font-weight: 300;
-
+    width: 70%;
 }
 video{
     position: absolute;
