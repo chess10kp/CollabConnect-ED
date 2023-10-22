@@ -1,0 +1,12 @@
+.project-container{
+    display: grid !important;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    grid-template-columns: repeat(3,400px);
+    justify-content: center;
+    gap: 40px;
+}
+img{
+    width: 100%;
+    height: 15rem!important;
+}

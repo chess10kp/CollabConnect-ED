@@ -1,3 +1,4 @@
+import './browsecomponents.css';
 import { useState, useRef, useEffect } from "react";
 import {
   Flex,
@@ -208,7 +209,7 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
         campusChangeHandler={campusChangeHandler}
         filteredProjects={projects}
       ></Filter>
-      <Flex justifyContent="center" alignItems="center" minH="100vh" flexWrap={"wrap"}  flexDirection={"row"}>
+      <div className='project-container'>
       {data.map((listitem) => (
         <ProjectItem 
           joinProject={joinProject}
@@ -221,7 +222,7 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
           imgurl={listitem.image}
         />
       ))}
-      </Flex>
+      </div>
     </>
   );
   else 
@@ -297,7 +298,7 @@ const ProjectItem = ({
   <CardBody>
     <Image
       objectFit={"cover"}
-      boxSize='150px'
+      boxSize='400px'
       src={imgurl}
       borderRadius='lg'
     />
