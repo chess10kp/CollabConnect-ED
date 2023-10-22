@@ -1,4 +1,3 @@
-import './browsecomponents.css';
 import { useState, useRef, useEffect } from "react";
 import {
   Flex,
@@ -32,7 +31,7 @@ import {
 
 } from "@chakra-ui/react";
 
-
+import MakeProject from "./newProject.tsx"
 
 const data = [
   {
@@ -166,10 +165,11 @@ const data = [
 //     return [] 
 // }
 
-const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) => {
+const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin,  isMakingNewProject, setIsMakingNewProject}) => {
   const [skills, setSkills] = useState("");
   const [campus, setCampus] = useState("");
   const projects = useRef([{}])
+  const [makeNewProject, setMakeNewProject] = useState(true)
 
   const skillChangeHandler = (event) => {
     setSkills(event.target.value);
@@ -195,7 +195,7 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
 
   const joinProject = ({id, name}) => {
       data[id].members.push(name)
-      filterProjects();
+      // filterProjects();
   }
 
 
@@ -209,7 +209,7 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
         campusChangeHandler={campusChangeHandler}
         filteredProjects={projects}
       ></Filter>
-      <div className='project-container'>
+      <Flex justifyContent="center" alignItems="center" minH="100vh" flexWrap={"wrap"}  flexDirection={"row"}>
       {data.map((listitem) => (
         <ProjectItem 
           joinProject={joinProject}
@@ -222,7 +222,7 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
           imgurl={listitem.image}
         />
       ))}
-      </div>
+      </Flex>
     </>
   );
   else 
@@ -249,6 +249,7 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
         />
       ))}
       </Flex>
+      {isMakingNewProject && <MakeProject data={projects}></MakeProject>}
     </>
   );
 
@@ -298,7 +299,7 @@ const ProjectItem = ({
   <CardBody>
     <Image
       objectFit={"cover"}
-      boxSize='400px'
+      boxSize='150px'
       src={imgurl}
       borderRadius='lg'
     />
