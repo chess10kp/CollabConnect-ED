@@ -22,7 +22,7 @@ export default function Section() {
             <div style={{paddingLeft:'40px'}} className='item'>
             <span>Send out invites</span>
             <p></p>
-At Collab-Connect-ED, our mission is to tackle the pressing issues in education, such as the digital divide and learning inequalities. We are dedicated to creating projects that aim to improve education by leveraging technology and collaborative efforts. Our goal is to facilitate solutions that bridge these gaps, making education more accessible and equitable. Through our platform, we strive to be a driving force in transforming education for the better. If you have any specific details you’d like to include, please let me know.
+At Collab-Connect-ED, our mission is to tackle the pressing issues in education, such as the digital divide and learning inequalities. We are dedicated to creating projects that aim to improve education by leveraging technology and collaborative efforts. Through our platform, we strive to be a driving force in transforming education for the better. 
             </div>
          
         </div>
