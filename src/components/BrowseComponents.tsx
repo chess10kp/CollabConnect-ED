@@ -422,6 +422,7 @@ const index =
   'Immersive Technolog': [ 10 ]
 }
 
+
 const data = [
   {
     id: 1,
@@ -597,9 +598,10 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
         campusChangeHandler={campusChangeHandler}
         filteredProjects={projects}
       ></Filter>
-      <Flex m={"auto auto"}  flexWrap={"wrap"} alignItems={"center"} flexDirection={"row"}>
+      <Flex justifyContent="center" alignItems="center" minH="100vh" flexWrap={"wrap"}  flexDirection={"row"}>
       {data.map((listitem) => (
         <ProjectItem 
+          joinProject={joinProject}
           key={listitem.id}
           title={listitem.title}
           description={listitem.problemStatement}
@@ -625,7 +627,8 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
       <Flex flexWrap={"wrap"} alignItems={"center"} flexDirection={"row"}>
       {projects.current.map((listitem) => (
         <ProjectItem
-          id={listitem.id}
+          key={listitem.id}
+          joinProject={joinProject}
           title={listitem.title}
           description={listitem.problemStatement}
           people={listitem.members}
@@ -709,16 +712,34 @@ const ProjectItem = ({
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>{title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            {description}
+          <Card>
+            <CardHeader>
+            </CardHeader>
+            <CardBody>
+            {people.map((person) => {
+                  return (
+              <Stack divider={<StackDivider />} spacing='4'>
+                <Box>
+                  <Text pt='2' fontSize='sm'>
+                        {person}
+                  </Text>
+                </Box>
+              </Stack>
+                  )
+                })}
+                </CardBody>
+          </Card>
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
-</Card>  );
-};
+</Card>  
+  )};
 
 export default BrowseProjects;
