@@ -38,10 +38,12 @@ export default function Navbar({
   }
 
   function onCreateNew() {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    if (!isLoggedIn) {
+      console.log("ji")
+      setshowLogin(!showlogin);
+      return 
+    }
 
-    const initialRef = useRef(null);
-    const finalRef = useRef(null);
 
     return (
       <>
@@ -111,6 +113,9 @@ export default function Navbar({
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
+              <Button onClick={toggleColorMode}>
+                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              </Button>
 
               <Button
                 backgroundColor="#a891b7"

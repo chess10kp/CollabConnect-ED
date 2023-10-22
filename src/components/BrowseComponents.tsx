@@ -159,11 +159,11 @@ const data = [
   },
 ];
 
-const checkIndex = (inputString) =>  {
-    if (index[inputString]) 
-    return data[index[inputString]]
-    return [] 
-}
+// const checkIndex = (inputString) =>  {
+//     if (index[inputString]) 
+//     return data[index[inputString]]
+//     return [] 
+// }
 
 const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) => {
   const [skills, setSkills] = useState("");
@@ -175,14 +175,14 @@ const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) 
   };
  
 
-  const filterProjects = () => {
-    const filteredSkills = checkIndex(skills)
-    projects.current = data.filter((item) => {
-      const isCollege = (campus) ? (item.campus == campus) : true;
-      const isSkill = (filteredSkills) ? true : false;
-      return isCollege && isSkill;
-    })
-  }
+  // const filterProjects = () => {
+  //   const filteredSkills = checkIndex(skills)
+  //   projects.current = data.filter((item) => {
+  //     const isCollege = (campus) ? (item.campus == campus) : true;
+  //     const isSkill = (filteredSkills) ? true : false;
+  //     return isCollege && isSkill;
+  //   })
+  // }
 
   const campusChangeHandler = (event) => {
     setCampus(event.target.value);
