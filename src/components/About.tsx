@@ -8,13 +8,9 @@ export default function About() {
 
                 <div className="column2">
                     <div>
-                        <h1>What is the Collab Connect</h1>
+                        <h1>Collab Connect</h1>
                         <p>
-                            Interos is using automation and the world’s largest database of B2B relationships to challenge the supply chain status quo and modernize how organizations manage supplier resilience. We empower enterprises to be Resilient by Design™ – embedding proactive resilience measures into their very foundations, instead of reacting to disruption after the fact.
-
-                            Using the industry's first, and only, automated supplier resilience platform, we harness the power of AI to map and monitor supply chains at scale.
-
-                            This enables companies to get ahead of disruption – five days sooner, five moves earlier, and five layers deeper.
+At Collab-Connect-ED, we’re dedicated to fostering collaborative projects that empower your academic journey. Our project section is a hub of teamwork and goal achievement, where you’ll discover like-minded students with diverse skills, enabling you to brainstorm and execute project ideas seamlessly. Moreover, our platform facilitates connections with a wide spectrum of individuals, allowing you to engage with fellow students. Whether you’re in search of collaborators with specific majors or expertise, seeking academic mentorship, or requiring specialized guidance, we’ve streamlined the process. Let’s come together at Collab-Connect-ED and build a strong, supportive community to bring your project concepts to life
                         </p>
                         <button className="btn">Get started</button>
                     </div>

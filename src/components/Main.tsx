@@ -6,6 +6,7 @@ import Login from './Login'
 import BrowseProjects from './BrowseComponents'
 import About from './About'
 import MakeProject from './newProject'
+import Section from './Section'
 
 
 
@@ -18,7 +19,8 @@ const Main = () => {
     <>
     <Navbar isMakingNewProject={isMakingNewProject} setIsMakingNewProject={setIsMakingNewProject} showlogin={showLogin} isLoggedIn={isLoggedIn} setshowLogin={setshowLogin} setIsLoggedIn={setIsLoggedIn} ></Navbar>
     {(isGuest || isLoggedIn) && <BrowseProjects isMakingNewProject={isMakingNewProject} setIsMakingNewProject={setIsMakingNewProject}  showLogin={showLogin} isLoggedIn={isLoggedIn} setshowLogin={setshowLogin} setIsLoggedIn={setIsLoggedIn}></BrowseProjects>}
-    {(!isGuest && !isLoggedIn) && <About></About>}
+    {(!isGuest && !isLoggedIn) && <><About></About> <Section></Section></>}
+      
     {(showLogin) && <Login showLogin={showLogin} isLoggedIn={isLoggedIn} setshowLogin={setshowLogin} setIsLoggedIn={setIsLoggedIn}></Login>}
     </>
   )
