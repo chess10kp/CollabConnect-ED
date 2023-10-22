@@ -4,7 +4,6 @@
     height: 91vh;
     font-family: "work Sans";
     position: relative;
-
 }
 video{
     position: fixed;
@@ -20,8 +19,13 @@ video{
     display: flex;
     place-content: center;
     place-items: center;
-    z-index: 2;
+    z-index: 1;
 
+}
+.btn{
+    margin-top: 30px;
+    padding: 9px 25px;
+    background-color: #146EF5;
 }
 .column2 h1{
     font-size: 2.5em;

@@ -5,4 +5,5 @@
   top: 0 !important;
   background: #1a202c;
   padding: 0 ;
+  z-index: 4;
 }
