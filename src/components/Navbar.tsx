@@ -38,10 +38,12 @@ export default function Navbar({
   }
 
   function onCreateNew() {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    if (!isLoggedIn) {
+      console.log("ji")
+      setshowLogin(!showlogin);
+      return 
+    }
 
-    const initialRef = useRef(null);
-    const finalRef = useRef(null);
 
     return (
       <>
