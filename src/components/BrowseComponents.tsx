@@ -296,6 +296,8 @@ const ProjectItem = ({
 <Card maxW='sm'>
   <CardBody>
     <Image
+      objectFit={"cover"}
+      boxSize='150px'
       src={imgurl}
       borderRadius='lg'
     />
