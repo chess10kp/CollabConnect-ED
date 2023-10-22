@@ -17,10 +17,14 @@ import {
 } from "@chakra-ui/icons";
 import "./Navbar.css";
 
-export default function Navbar() {
+export default function Navbar({showlogin, setshowLogin, isLoggedIn, setIsLoggedIn}) {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  function onLoginBtn() {
+    if (!isLoggedIn) {
+      setshowLogin(!showlogin)
+    }
+  }
 
   return (
     <div id="navFix">
@@ -68,7 +72,8 @@ export default function Navbar() {
                 variant="solid"
                 size={["sm", "md"]}
                 id="loginBtn"
-              >Login
+                onClick={onLoginBtn}
+              >{isLoggedIn ? "Browse Projects" : "Login"  }
               </Button>
               <Button
                 backgroundColor="#146ef5"
@@ -77,7 +82,7 @@ export default function Navbar() {
                 variant="solid"
                 size={["sm", "md"]}
                 id="loginBtn"
-              >Get Started
+              >{isLoggedIn ? "Create project" : "Get Started"}
               </Button>
             </Stack>
           </Flex>

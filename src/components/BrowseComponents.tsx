@@ -1,6 +1,20 @@
 import { useState, useRef, useEffect } from "react";
 import {
+  Flex,
+  useDisclosure,
+  Image,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
   Text,
+  Divider,
+  CardFooter,
+  ButtonGroup,
+  Button,
   Card,
   CardHeader,
   CardBody,
@@ -8,18 +22,15 @@ import {
   StackDivider,
   Heading,
   Box,
-  list,
-  propNames,
-} from "@chakra-ui/react";
-import {
+  HBox,
   Input,
   FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText,
   Select,
+
 } from "@chakra-ui/react";
-import { useMiniSearch } from "react-minisearch";
 
 
 const index = 
@@ -543,7 +554,7 @@ const checkIndex = (inputString) =>  {
     return [] 
 }
 
-const BrowseProjects = ({ isLoggedIn }) => {
+const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin }) => {
   const [skills, setSkills] = useState("");
   const [campus, setCampus] = useState("");
   const projects = useRef([{}])
@@ -570,8 +581,13 @@ const BrowseProjects = ({ isLoggedIn }) => {
     )
   };
 
+  const joinProject = ({id, name}) => {
+      data[id].members.push(name)
+      filterProjects();
+  }
 
-  if (projects.current.length == 0 )
+
+  if (projects.current.length == 1 )
   return (
     <>
       <Filter
@@ -581,8 +597,10 @@ const BrowseProjects = ({ isLoggedIn }) => {
         campusChangeHandler={campusChangeHandler}
         filteredProjects={projects}
       ></Filter>
+      <Flex m={"auto auto"}  flexWrap={"wrap"} alignItems={"center"} flexDirection={"row"}>
       {data.map((listitem) => (
-        <ProjectItem
+        <ProjectItem 
+          key={listitem.id}
           title={listitem.title}
           description={listitem.problemStatement}
           people={listitem.members}
@@ -591,6 +609,7 @@ const BrowseProjects = ({ isLoggedIn }) => {
           imgurl={listitem.image}
         />
       ))}
+      </Flex>
     </>
   );
   else 
@@ -603,8 +622,10 @@ const BrowseProjects = ({ isLoggedIn }) => {
         campusChangeHandler={campusChangeHandler}
         filteredProjects={projects}
       ></Filter>
+      <Flex flexWrap={"wrap"} alignItems={"center"} flexDirection={"row"}>
       {projects.current.map((listitem) => (
         <ProjectItem
+          id={listitem.id}
           title={listitem.title}
           description={listitem.problemStatement}
           people={listitem.members}
@@ -613,6 +634,7 @@ const BrowseProjects = ({ isLoggedIn }) => {
           imgurl={listitem.image}
         />
       ))}
+      </Flex>
     </>
   );
 
@@ -653,23 +675,50 @@ const ProjectItem = ({
   skills,
   campus,
   imgurl,
+  joinProject,
 }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
-    <Card>
-      <CardBody>
-        <Stack divider={<StackDivider />} spacing="4">
-          <Box>
-            <Heading size="xs" textTransform="uppercase">
-              {title}
-            </Heading>
-            <Text pt="2" fontSize="sm">
-              {description}
-            </Text>
-          </Box>
-        </Stack>
-      </CardBody>
-    </Card>
-  );
+<Card maxW='sm'>
+  <CardBody>
+    <Image
+      src={imgurl}
+      borderRadius='lg'
+    />
+    <Stack mt='6' spacing='3'>
+      <Heading size='md'>{title}</Heading>
+      <Text>{description}</Text>
+    </Stack>
+  </CardBody>
+  <Divider />
+  <CardFooter>
+    <ButtonGroup spacing='2'>
+      <Button variant='solid' colorScheme='blue' onClick={joinProject}>
+        Join now
+      </Button>
+      <Button variant='ghost' colorScheme='blue' onClick={onOpen}>
+        View project
+      </Button>
+    </ButtonGroup>
+  </CardFooter>
+      <Modal
+        onClose={onClose}
+        isOpen={isOpen}
+        scrollBehavior="inside"
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+</Card>  );
 };
 
 export default BrowseProjects;
