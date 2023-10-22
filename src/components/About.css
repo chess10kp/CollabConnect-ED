@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Work+Sans:wght@300;500&display=swap');
+.about{
+    background-color:#E5E5F2;
+    display: flex;
+    height: 100vh;
+    font-family: "work Sans";
+}
+.column1{
+    position: relative;
+    flex-basis: 50%;
+    display: flex;
+    height: 100%;
+    place-items: center;
+}
+.column2{
+    flex-basis: 50%;
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    place-content: center;
+    place-items: center;
+
+}
+.column2 h1{
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.column2 div{
+    width: 80%;
+}
+.column2 p{
+    line-height: 1.8em;
+    font-weight: 300;
+
+}
+video{
+    position: absolute;
+    left: 0;
+    height: 80%;
+}
+/* Styles for screens smaller than or equal to 600px */
+@media (max-width: 600px) {
+    /* CSS rules for small screens */
+    .about{
+        display: unset;
+    }
+    .column1{
+        display: unset;
+        height: fit-content;
+    }
+    video{
+        position: unset;
+    }
+    .column2{
+        padding: unset;
+        margin-top: 50px;
+    }
+  }
+  
+  /* Styles for screens between 601px and 900px */
+  @media (min-width: 601px) and (max-width: 900px) {
+    /* CSS rules for medium screens */
+    .about{
+        display: unset;
+    }
+    .column1{
+        display: unset;
+        height: fit-content;
+    }
+    video{
+        position: unset;
+    }
+    .column2{
+        margin-top: 50px;
+        padding: unset;
+    }
+  }
+  
+  /* Styles for screens larger than 900px */
+  @media (min-width: 901px ) and (max-width: 1024px){
+    /* CSS rules for large screens */
+    .about{
+        display: unset;
+    }
+    .column1{
+        display: unset;
+        height: fit-content;
+    }
+    video{
+        position: unset;
+    }
+    .column2{
+        padding: unset;
+        margin-top: 50px;
+
+    }
+  }
