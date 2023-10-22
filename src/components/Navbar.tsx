@@ -5,7 +5,6 @@ import {
   useColorModeValue,
   Stack,
   useColorMode,
-  Show,
   HStack,
   useDisclosure,
   IconButton,
@@ -71,7 +70,6 @@ export default function Navbar() {
                 id="loginBtn"
               >Login
               </Button>
-
               <Button
                 backgroundColor="#146ef5"
                 _hover={{ bg: "#146ef5", color: "black" }}

@@ -1,10 +1,12 @@
 import React from 'react'
+import {useState} from 'react'
+
 import Navbar from './Navbar'
 import Login from './Login'
 
-const [showLogin, setshowLogin] = useState(false)
 
 const Main = () => {
+  const [showLogin, setshowLogin] = useState(false)
   return (
     <>
     <Navbar></Navbar>
