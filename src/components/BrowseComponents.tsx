@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, } from "react";
 import {
   Flex,
   useDisclosure,
@@ -22,11 +22,7 @@ import {
   StackDivider,
   Heading,
   Box,
-  Input,
   FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Select,
 
 } from "@chakra-ui/react";
@@ -125,17 +121,6 @@ const data = [
     image: "https://i.pinimg.com/564x/a9/cc/c5/a9ccc578e32f35ceac0b8ac1f081c3d4.jpg",
   },
   {
-    id: 8,
-    title: "Robotics Challenge",
-    problemStatement:
-      "Participate in a robotics competition, designing and programming robots to accomplish specific tasks.",
-    skills_needed: ["Robotics", "Programming", "Mechanical Engineering"],
-    members: ["Benjamin Harris", "Lily Adams"],
-    skills_met: [],
-    campus: "University of Michigan Ann Arbor",
-    Image: "https://i.pinimg.com/564x/01/79/42/0179424a47a4aeabdbae926b0f74e973.jpg",
-  },
-  {
     id: 9,
     title: "Renewable Energy Monitoring",
     problemStatement:
@@ -165,7 +150,7 @@ const data = [
 //     return [] 
 // }
 
-const BrowseProjects = ({ isLoggedIn, setIsLoggedIn, showLogin, setshowLogin,  isMakingNewProject, setIsMakingNewProject}) => {
+const BrowseProjects = ({ }) => {
   const [skills, setSkills] = useState("");
   const [campus, setCampus] = useState("");
   const projects = useRef([{}])
